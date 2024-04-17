@@ -1,4 +1,4 @@
-# steamchatnathanc
+# Steam Chat Clone App
 
 A flutter project made in Católica University of Jaraguá do Sul (CatólicaSC) for the Mobile Development discipline of the Software Engineering degree.
 Dart Version: 3.3.2
