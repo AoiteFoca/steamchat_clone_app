@@ -1,6 +1,8 @@
 # steamchatnathanc
 
-A new Flutter project.
+A flutter project made in Católica University of Jaraguá do Sul (CatólicaSC) for the Mobile Development discipline of the Software Engineering degree.
+Dart Version: 3.3.2
+Flutter Version: 79.0.3+
 
 ## Getting Started
 
