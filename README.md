@@ -36,7 +36,7 @@ Aplicativo de comunicação para comunidade de jogos. Aqui, todos os jogadores p
 - Opção para adicionar amigo;
 - ícone de acesso ao Perfil (três barras superiores);
 - Barra para acesso de áreas (Amigos, Conversas, Grupos).
-###Tela para Adicionar Amigos;
+### Tela para Adicionar Amigos;
 - Campo com seu código de amigo;
 - Botão que copie seu código de amigo;
 - Busca por código de amigo;
