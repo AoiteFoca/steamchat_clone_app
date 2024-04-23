@@ -5,7 +5,7 @@ class MembrosGrupoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Voltar ao Grupo'), // Define o título da barra de navegação
+        title: Text('Voltar ao Grupo'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -19,13 +19,13 @@ class MembrosGrupoPage extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.person_add), // Ícone para adicionar amigo ao grupo
                   onPressed: () {
-                    // Adicionar lógica para adicionar o amigo ao grupo
+                    //Lógica para adicionar o amigo ao grupo
                   },
                 ),
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Adicionar Amigos ao Grupo', // Dica para o campo de texto
+                      hintText: 'Adicionar Amigos ao Grupo',
                       border: OutlineInputBorder(), // Borda do campo de texto
                     ),
                   ),
@@ -33,8 +33,8 @@ class MembrosGrupoPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 16), // Espaço em branco
-          SizedBox(height: 8), // Espaço em branco
+          SizedBox(height: 16),
+          SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Row(
@@ -42,13 +42,13 @@ class MembrosGrupoPage extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.search), // Ícone para buscar membros no grupo
                   onPressed: () {
-                    // Adicionar lógica para buscar membros no grupo
+                    //Lógica para buscar membros no grupo
                   },
                 ),
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Buscar Membros no Grupo', // Dica para o campo de texto
+                      hintText: 'Buscar Membros no Grupo',
                       border: OutlineInputBorder(), // Borda do campo de texto
                     ),
                   ),
@@ -56,9 +56,9 @@ class MembrosGrupoPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 30), // Espaço em branco
+          SizedBox(height: 30),
           Text(
-            'Membros do Grupo', // Título para a lista de membros do grupo
+            'Membros do Grupo',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class MembrosGrupoPage extends StatelessWidget {
           SizedBox(width: 16), // Espaço entre o avatar e o nome do membro
           Text(
             name, // Nome do membro
-            style: TextStyle(fontSize: 16), // Estilo do texto do nome do membro
+            style: TextStyle(fontSize: 16),
           ),
         ],
       ),

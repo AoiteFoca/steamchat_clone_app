@@ -23,7 +23,7 @@ class _CadastroPageState extends State<CadastroPage> {
           children: <Widget>[
             Center(
               child: Text(
-                'Cadastre-se', // Título principal da página
+                'Cadastre-se',
                 style: TextStyle(
                   fontSize: 32.0,
                   fontWeight: FontWeight.bold,
@@ -41,20 +41,20 @@ class _CadastroPageState extends State<CadastroPage> {
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
-                labelText: 'Email', // Rótulo para o campo de texto do email
-                labelStyle: TextStyle(fontSize: 20.0), // Altera o tamanho da fonte para 20.0
+                labelText: 'Email',
+                labelStyle: TextStyle(fontSize: 20.0),
               ),
             ),
-            SizedBox(height: 16.0), // Espaçamento entre os campos de texto
+            SizedBox(height: 16.0),
             TextField(
               controller: _senhaController,
               obscureText: true, // Configura o campo de texto da senha para ocultar o texto digitado
               decoration: InputDecoration(
-                labelText: 'Senha', // Rótulo para o campo de texto da senha
-                labelStyle: TextStyle(fontSize: 20.0), // Altera o tamanho da fonte para 20.0
+                labelText: 'Senha',
+                labelStyle: TextStyle(fontSize: 20.0),
               ),
             ),
-            SizedBox(height: 16.0), // Espaçamento entre os campos de texto
+            SizedBox(height: 16.0),
             Row(
               children: [
                 Expanded(
@@ -67,8 +67,8 @@ class _CadastroPageState extends State<CadastroPage> {
                       backgroundColor: Colors.blue[900], // Cor de fundo do botão
                     ),
                     child: Text(
-                      'Finalizar Cadastro', // Texto do botão
-                      style: TextStyle(fontSize: 24.0), // Altera o tamanho da fonte para 24.0
+                      'Finalizar Cadastro',
+                      style: TextStyle(fontSize: 24.0),
                     ),
                   ),
                 ),

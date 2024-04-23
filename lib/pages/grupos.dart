@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'perfil.dart'; // Importe a página de perfil
-import 'grupomsg.dart'; // Importe a página de mensagens de grupo
-import 'novogrupo.dart'; // Importe a página de criação de novo grupo
+import 'perfil.dart';
+import 'grupomsg.dart';
+import 'novogrupo.dart';
 
 class GruposPage extends StatefulWidget {
   @override
@@ -19,11 +19,11 @@ class _GruposPageState extends State<GruposPage> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
-        Navigator.pushReplacementNamed(context, '/amigos'); // Navegar para a página de amigos
+        Navigator.pushReplacementNamed(context, '/amigos');
       } else if (index == 1) {
-        Navigator.pushReplacementNamed(context, '/chat'); // Navegar para a página de conversas
+        Navigator.pushReplacementNamed(context, '/chat');
       } else if (index == 2) {
-        Navigator.pushReplacementNamed(context, '/grupos'); // Navegar para a página de grupos
+        Navigator.pushReplacementNamed(context, '/grupos');
       }
     });
   }
@@ -56,7 +56,6 @@ class _GruposPageState extends State<GruposPage> {
         leading: IconButton(
           icon: Icon(Icons.menu), // Ícone do menu
           onPressed: () {
-            // Navegação para a página de perfil
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => PerfilPage()),
@@ -67,7 +66,7 @@ class _GruposPageState extends State<GruposPage> {
           IconButton(
             icon: Icon(Icons.group_add), // Ícone para criar um novo grupo
             onPressed: () {
-              _navigateToNovoGrupo(); // Navegar para a página de criação de novo grupo
+              _navigateToNovoGrupo();
             },
           ),
         ],
@@ -81,8 +80,8 @@ class _GruposPageState extends State<GruposPage> {
             ),
             title: Text(grupos[index]), // Nome do grupo
             onTap: () {
-              // Ao clicar no grupo, navegue para a página de mensagens de grupo
-              _navigateToMessage(grupos[index]); // Passar o nome do grupo atual
+              // Ao clicar no grupo, navega para a página de mensagens de grupo
+              _navigateToMessage(grupos[index]); // Passa o nome do grupo atual
             },
           );
         },
@@ -92,15 +91,15 @@ class _GruposPageState extends State<GruposPage> {
         onTap: _onItemTapped, // Lidar com a navegação inferior
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.people), // Ícone para a página de amigos
+            icon: Icon(Icons.people),
             label: 'Amigos',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat), // Ícone para a página de conversas
+            icon: Icon(Icons.chat),
             label: 'Conversas',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.group), // Ícone para a página de grupos
+            icon: Icon(Icons.group),
             label: 'Grupos',
           ),
         ],

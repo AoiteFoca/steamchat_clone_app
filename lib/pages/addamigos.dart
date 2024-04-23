@@ -4,16 +4,16 @@ import 'package:flutter/services.dart'; //Import para utilizar a área de transf
 class AddAmigosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String codigoAmigo = 'XLR8666'; // Código do amigo a ser copiado
+    String codigoAmigo = 'XLR8666'; // Código do amigo para copiar
     return Scaffold(
       appBar: AppBar(
-        title: Text('Voltar'), // Título da barra de navegação
+        title: Text('Voltar'),
       ),
       backgroundColor: Colors.grey[900], // Cor de fundo da tela
       body: Center(
         child: Container(
           padding: EdgeInsets.all(20.0), // Preenchimento interno do contêiner
-          width: MediaQuery.of(context).size.width * 0.8, // Largura do contêiner (80% da largura da tela)
+          width: MediaQuery.of(context).size.width * 0.8, // Largura do contêiner (80% da largura da tela). Verificar depois se há como otimizar
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -32,13 +32,13 @@ class AddAmigosPage extends StatelessWidget {
               ),
               SizedBox(height: 20.0), // Espaçamento vertical
               Text(
-                'Seu código de amigo:', // Título para o código do próprio usuário
+                'Seu código de amigo:', // Título para o código do usuário
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8.0), // Espaçamento vertical
+              SizedBox(height: 8.0),
               Row(
                 children: [
                   Expanded(
@@ -66,37 +66,37 @@ class AddAmigosPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 35.0), // Espaçamento vertical
+              SizedBox(height: 35.0),
               Text(
-                'Informar código do amigo:', // Título para inserir o código do amigo a ser adicionado
+                'Informar código do amigo:', // Local para inserir o código do amigo a ser adicionado
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8.0), // Espaçamento vertical
+              SizedBox(height: 8.0),
               TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Informe o código do amigo', // Dica para inserir o código do amigo
+                  hintText: 'Informe o código do amigo', //Aqui é a criação da hint para dar uma "dica" ao usuário
                 ),
               ),
               SizedBox(height: 16.0), // Espaçamento vertical
               Text(
-                'Ou busque pelo usuário:', // Título para buscar o amigo pelo nome de usuário
+                'Ou busque pelo usuário:', // Buscar o amigo pelo nome de usuário
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8.0), // Espaçamento vertical
+              SizedBox(height: 8.0),
               TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Informe o Username do amigo', // Dica para inserir o nome do usuário
+                  hintText: 'Informe o Username do amigo', //Criação da hint para dar uma "dica" ao usuário
                 ),
               ),
-              SizedBox(height: 16.0), // Espaçamento vertical
+              SizedBox(height: 16.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue[900], // Cor de fundo do botão
