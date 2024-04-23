@@ -39,8 +39,7 @@ class MessagePage extends StatelessWidget {
   Widget _buildMessageComposer() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey.shade900,
-        // Define a cor de fundo do campo de composição de mensagem
+        color: Colors.grey.shade900, // Define a cor de fundo do campo de composição de mensagem
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -55,10 +54,9 @@ class MessagePage extends StatelessWidget {
         child: Row(
           children: [
             IconButton(
-              icon: Icon(Icons.image, color: Colors.white),
-              // Ícone para enviar imagem
+              icon: Icon(Icons.image, color: Colors.white), // Ícone para enviar imagem
               onPressed: () {
-                // Adicionar lógica para enviar imagem
+                // Lógica para enviar imagem
               },
             ),
             Expanded(
@@ -66,22 +64,19 @@ class MessagePage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: TextField(
                   style: TextStyle(color: Colors.white),
-                  // Define a cor do texto como branco
                   decoration: InputDecoration(
                     hintText: 'Digite sua mensagem...',
                     hintStyle: TextStyle(color: Colors.white),
-                    // Define a cor do texto de dica como branco
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Colors
-                              .white), // Define a cor da borda como branco
+                          color: Colors.white),
                     ),
                   ),
                   textInputAction: TextInputAction.send,
                   maxLines: null,
                   // Permite que o campo de texto cresça conforme o conteúdo
                   onSubmitted: (value) {
-                    // Adicionar lógica para enviar mensagem de texto
+                    //Lógica para enviar mensagem de texto
                   },
                 ),
               ),
@@ -90,7 +85,7 @@ class MessagePage extends StatelessWidget {
               icon: Icon(Icons.send, color: Colors.white),
               // Ícone para enviar mensagem de texto
               onPressed: () {
-                // Adicionar lógica para enviar mensagem de texto
+                //Lógica para enviar mensagem de texto
               },
             ),
           ],
@@ -101,7 +96,7 @@ class MessagePage extends StatelessWidget {
 
   // Função para construir as mensagens
   List<Widget> _buildMessages() {
-    // Simulação de mensagens
+    // Simulação de mensagens (Apenas Visualização)
     List<Map<String, dynamic>> messages = [
       {'user': 'me', 'message': 'Olá, $friendName como você está?'},
       {'user': 'friend', 'message': 'Oi! Estou bem, e você?'},
@@ -111,7 +106,6 @@ class MessagePage extends StatelessWidget {
       {'user': 'friend', 'message': 'Podemos jogar um CS?'},
       {'user': 'me', 'message': 'Pode ser!! Logo mais te chamo pro game!!'},
       {'user': 'friend', 'message': 'Beleza! 😎'},
-      // Adicione mais mensagens conforme necessário
     ];
 
     return messages.map((message) {
@@ -154,7 +148,7 @@ class MessagePage extends StatelessWidget {
             child: Text(
               message, // Exibe o texto da mensagem
               style: TextStyle(
-                  color: Colors.white), // Define a cor do texto como branco
+                  color: Colors.white),
             ),
           ),
         ],

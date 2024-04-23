@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'addamigos.dart'; // Importa a página de adicionar amigos
+import 'addamigos.dart';
 
 class PerfilPage extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _PerfilPageState extends State<PerfilPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Perfil'), // Define o título da página
+        title: Text('Perfil'),
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -31,7 +31,6 @@ class _PerfilPageState extends State<PerfilPage> {
                       Expanded(
                         child: Container(
                           color: Colors.grey[900],
-                          // Define a cor de fundo temporária
                           child: Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -53,31 +52,26 @@ class _PerfilPageState extends State<PerfilPage> {
                                     backgroundImage: NetworkImage(
                                       'https://avatars.cloudflare.steamstatic.com/8d1eebb8364ac6ecc76bd9d3e13ff8e9743816fd_full.jpg',
                                     ),
-                                    // Define a imagem de perfil
+                                    //Imagem de perfil
                                     backgroundColor: Colors.transparent,
                                     foregroundColor: _getBorderColor(),
                                     child: Text(''),
                                   ),
                                 ),
-                                SizedBox(height: 16.0),
-                                // Espaçamento
-                                // Nome do usuário
+                                SizedBox(height: 16.0),// Espaçamento
                                 Text(
-                                  'Makolindo Monstro',
+                                  'Teste Nome',
                                   style: TextStyle(
                                       fontSize: constraints.maxWidth * 0.05,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                SizedBox(height: constraints.maxWidth * 0.1),
-                                // Espaçamento
-                                // Título "Status"
+                                SizedBox(height: constraints.maxWidth * 0.1), // Espaçamento
                                 Text(
                                   'Status',
                                   style: TextStyle(
                                       fontSize: constraints.maxWidth * 0.050),
                                 ),
                                 SizedBox(height: constraints.maxWidth * 0.01),
-                                // Espaçamento
                                 // Botões de alternância para selecionar o status
                                 OutlinedButton(
                                   onPressed: () {
@@ -86,7 +80,6 @@ class _PerfilPageState extends State<PerfilPage> {
                                     });
                                   },
                                   child: Text('Online'),
-                                  // Texto do botão "Online"
                                   style: ButtonStyle(
                                     // Estiliza o botão conforme o status atual
                                     side: MaterialStateProperty.resolveWith<
@@ -106,7 +99,6 @@ class _PerfilPageState extends State<PerfilPage> {
                                   ),
                                 ),
                                 SizedBox(height: constraints.maxWidth * 0.01),
-                                // Espaçamento
                                 OutlinedButton(
                                   onPressed: () {
                                     setState(() {
@@ -114,7 +106,6 @@ class _PerfilPageState extends State<PerfilPage> {
                                     });
                                   },
                                   child: Text('Ocupado'),
-                                  // Texto do botão "Ocupado"
                                   style: ButtonStyle(
                                     // Estiliza o botão conforme o status atual
                                     side: MaterialStateProperty.resolveWith<
@@ -134,7 +125,6 @@ class _PerfilPageState extends State<PerfilPage> {
                                   ),
                                 ),
                                 SizedBox(height: constraints.maxWidth * 0.01),
-                                // Espaçamento
                                 OutlinedButton(
                                   onPressed: () {
                                     setState(() {
@@ -142,7 +132,6 @@ class _PerfilPageState extends State<PerfilPage> {
                                     });
                                   },
                                   child: Text('Invisível'),
-                                  // Texto do botão "Invisível"
                                   style: ButtonStyle(
                                     // Estiliza o botão conforme o status atual
                                     side: MaterialStateProperty.resolveWith<
@@ -169,11 +158,8 @@ class _PerfilPageState extends State<PerfilPage> {
                       // Opções na parte inferior do Drawer
                       ListTile(
                         leading: Icon(Icons.person_add),
-                        // Ícone para adicionar amigo
                         title: Text('Adicionar Amigo'),
-                        // Texto para adicionar amigo
                         onTap: () {
-                          // Redireciona para a página de adicionar amigos
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -183,11 +169,8 @@ class _PerfilPageState extends State<PerfilPage> {
                       ),
                       ListTile(
                         leading: Icon(Icons.exit_to_app),
-                        // Ícone para sair da conta
                         title: Text('Sair'),
-                        // Texto para sair da conta
                         onTap: () {
-                          // Navega de volta para a tela de login
                           Navigator.popUntil(context, ModalRoute.withName('/'));
                         },
                       ),
@@ -195,7 +178,7 @@ class _PerfilPageState extends State<PerfilPage> {
                   ),
                 ),
               ),
-              // Parte direita (Placeholder)
+              // Parte direita (Placeholder). Ver como melhorar isso
               Expanded(
                 child: Container(
                   color: Colors.transparent, // Cor de fundo temporária

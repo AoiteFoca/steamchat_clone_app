@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'perfil.dart'; // Importe a página de perfil
-import 'addamigos.dart'; // Importe a página de adicionar amigos
-import 'msg.dart'; // Importe a página de mensagens
+import 'perfil.dart';
+import 'addamigos.dart';
+import 'msg.dart';
 
 class AmigosPage extends StatefulWidget {
   @override
@@ -34,7 +34,7 @@ class _AmigosPageState extends State<AmigosPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Simulação de lista de amigos online e offline (vazias por enquanto)
+    // Simulação de lista de amigos online e offline (Criação para auxílio visual)
     List<String> amigosOnline = [
       'Amigo_1',
       'Amigo_4',
@@ -63,7 +63,7 @@ class _AmigosPageState extends State<AmigosPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Meus Amigos'), // Título da AppBar
+        title: Text('Meus Amigos'),
         leading: IconButton(
           icon: Icon(Icons.menu), // Ícone do menu
           onPressed: () {
@@ -96,7 +96,7 @@ class _AmigosPageState extends State<AmigosPage> {
             child: Row(
               children: [
                 Text(
-                  'Favoritos', // Título da seção de amigos favoritos
+                  'Favoritos',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -105,7 +105,7 @@ class _AmigosPageState extends State<AmigosPage> {
           SizedBox(
             height: 100.0,
             child: ListView.builder(
-              scrollDirection: Axis.horizontal, // Rolagem horizontal
+              scrollDirection: Axis.horizontal, // Rolagem horizontal para lista dos amigos favoritos
               itemCount: amigosFavoritos.length,
               itemBuilder: (context, index) {
                 return Padding(
@@ -135,7 +135,7 @@ class _AmigosPageState extends State<AmigosPage> {
             child: Row(
               children: [
                 Text(
-                  'Online', // Título da seção de amigos online
+                  'Online',
                   style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
                 IconButton(
@@ -179,7 +179,7 @@ class _AmigosPageState extends State<AmigosPage> {
             child: Row(
               children: [
                 Text(
-                  'Offline', // Título da seção de amigos offline
+                  'Offline',
                   style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
                 IconButton(

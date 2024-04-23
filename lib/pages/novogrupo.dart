@@ -13,7 +13,7 @@ class _NovoGrupoPageState extends State<NovoGrupoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Voltar'), // Título da barra de navegação
+        title: Text('Voltar'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -23,39 +23,38 @@ class _NovoGrupoPageState extends State<NovoGrupoPage> {
             TextField(
               decoration: InputDecoration(
                 labelText:
-                    'Nome do Grupo', // Rótulo para o campo de entrada do nome do grupo
+                    'Nome do Grupo',
               ),
             ),
             SizedBox(height: 10), // Espaçamento
             ElevatedButton(
               onPressed: () {
-                // Adicionar lógica para selecionar uma foto
+                //Lógica para selecionar uma foto
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors
-                    .blue[900], // Define a cor de fundo do botão como azul
+                backgroundColor: Colors.blue[900],
               ),
               child: Text(
                   'Selecionar Foto'), // Texto do botão para selecionar foto
             ),
             ListTile(
-              leading: Icon(Icons.search), // Ícone de busca
+              leading: Icon(Icons.search),
               title: TextField(
                 decoration: InputDecoration(
                   hintText:
-                      'Buscar por nome de amigo', // Dica de texto para o campo de busca
+                      'Buscar por nome de amigo',
                 ),
               ),
             ),
             Divider(), // Linha divisória
             Text(
-              'Membros do Grupo', // Título para a lista de membros do grupo
+              'Membros do Grupo',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10), // Espaçamento
+            SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: 10, // Número de amigos na lista
@@ -66,10 +65,9 @@ class _NovoGrupoPageState extends State<NovoGrupoPage> {
                       ListTile(
                         leading: CircleAvatar(
                           backgroundColor: Colors.grey[800],
-                          // Cor de fundo temporária para o avatar
-                          child: Icon(Icons.person), // Ícone de usuário
+                          child: Icon(Icons.person),
                         ),
-                        title: Text('Amigo ${index + 1}'), // Nome do amigo
+                        title: Text('Amigo ${index + 1}'), // Nome do amigo testes
                         trailing: Checkbox(
                           value: _isSelected[index],
                           // Estado da caixa de seleção
@@ -86,16 +84,16 @@ class _NovoGrupoPageState extends State<NovoGrupoPage> {
                 },
               ),
             ),
-            SizedBox(height: 20), // Espaçamento
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Adicionar lógica para criar o grupo
+                // Lógica para criar o grupo
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors
-                    .blue[900], // Define a cor de fundo do botão como azul
+                    .blue[900],
               ),
-              child: Text('Criar Grupo'), // Texto do botão para criar o grupo
+              child: Text('Criar Grupo'),
             ),
           ],
         ),

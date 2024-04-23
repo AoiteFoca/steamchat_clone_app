@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'membrosgrupo.dart'; // Importe a página de membros do grupo
+import 'membrosgrupo.dart';
 
 class GMessagePage extends StatelessWidget {
   final String groupname;
@@ -49,7 +49,7 @@ class GMessagePage extends StatelessWidget {
   Widget _buildMessageComposer() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey.shade900, // Alterado para cor escura
+        color: Colors.grey.shade900, // Cor do campo de texto
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -66,7 +66,7 @@ class GMessagePage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.image, color: Colors.white), // Ícone em branco
               onPressed: () {
-                // Adicionar lógica para enviar imagem
+                // Lógica para enviar imagem
               },
             ),
             Expanded(
@@ -76,15 +76,15 @@ class GMessagePage extends StatelessWidget {
                   style: TextStyle(color: Colors.white), // Cor do texto em branco
                   decoration: InputDecoration(
                     hintText: 'Digite sua mensagem...',
-                    hintStyle: TextStyle(color: Colors.white), // Cor do texto de dica em branco
+                    hintStyle: TextStyle(color: Colors.white),
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white), // Cor da borda em branco
+                      borderSide: BorderSide(color: Colors.white),
                     ),
                   ),
                   textInputAction: TextInputAction.send,
                   maxLines: null, // Permite que o campo de texto cresça conforme o conteúdo
                   onSubmitted: (value) {
-                    // Adicionar lógica para enviar mensagem de texto
+                    // Lógica para enviar mensagem de texto
                   },
                 ),
               ),
@@ -92,7 +92,7 @@ class GMessagePage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.send, color: Colors.white), // Ícone em branco
               onPressed: () {
-                // Adicionar lógica para enviar mensagem de texto
+                //Lógica para enviar mensagem de texto
               },
             ),
           ],
@@ -102,7 +102,7 @@ class GMessagePage extends StatelessWidget {
   }
 
   List<Widget> _buildMessages() {
-    // Simulação de mensagens
+    // Simulação de mensagens (Apenas visual)
     List<Map<String, dynamic>> messages = [
       {'user': 'me', 'message': 'Eu adoro o $groupname!'},
       {'user': 'friend', 'message': 'Eu também!! Esse é meu grupo favorito!'},
@@ -110,7 +110,6 @@ class GMessagePage extends StatelessWidget {
       {'user': 'friend', 'message': '😪😪😪😪'},
       {'user': 'me', 'message': 'Daqui a pouco mais pessoas aparecem!!'},
       {'user': 'friend', 'message': 'Tomara! ☝️🤓'},
-      // Adicione mais mensagens conforme necessário
     ];
 
     return messages.map((message) {
@@ -148,7 +147,7 @@ class GMessagePage extends StatelessWidget {
             ),
             child: Text(
               message,
-              style: TextStyle(color: Colors.white), // Cor do texto branco
+              style: TextStyle(color: Colors.white), // Cor do texto
             ),
           ),
         ],

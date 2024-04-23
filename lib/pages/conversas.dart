@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'perfil.dart'; // Importe a página de perfil
-import 'amigos.dart'; // Importe a página de amigos
-import 'msg.dart'; // Importe a página de mensagens
+import 'perfil.dart';
+import 'msg.dart';
 
 class ChatPage extends StatefulWidget {
   @override
@@ -18,11 +17,11 @@ class _ChatPageState extends State<ChatPage> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
-        Navigator.pushReplacementNamed(context, '/amigos'); // Navegação para a página de amigos
+        Navigator.pushReplacementNamed(context, '/amigos');
       } else if (index == 1) {
-        Navigator.pushReplacementNamed(context, '/chat'); // Navegação para a página de conversas (atual)
+        Navigator.pushReplacementNamed(context, '/chat');
       } else if (index == 2) {
-        Navigator.pushReplacementNamed(context, '/grupos'); // Navegação para a página de grupos
+        Navigator.pushReplacementNamed(context, '/grupos');
       }
     });
   }
@@ -40,7 +39,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Conversas'), // Título da app bar para "Conversas"
+        title: Text('Conversas'),
         leading: IconButton(
           icon: Icon(Icons.menu), // Ícone do menu
           onPressed: () {
@@ -73,7 +72,7 @@ class _ChatPageState extends State<ChatPage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.people), // Ícone para a página de amigos
-            label: 'Amigos', // Rótulo para a página de amigos
+            label: 'Amigos',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat), // Ícone para a página de conversas
@@ -81,7 +80,7 @@ class _ChatPageState extends State<ChatPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.group), // Ícone para a página de grupos
-            label: 'Grupos', // Rótulo para a página de grupos
+            label: 'Grupos',
           ),
         ],
       ),
