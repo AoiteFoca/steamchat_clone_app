@@ -1,5 +1,5 @@
 # Steam Chat Clone App
-
+ <img alt="Project Status" src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-green">
 Projeto flutter desenvolvido no Centro Universitário Católica de Jaraguá do Sul (CatólicaSC) para a matéria de desenvolvimento de dispositivos móveis no curso de Engenharia de Software.<br/>
 IDE: IntelliJ IDEA<br/>
 Plugins:<br/>
@@ -84,3 +84,7 @@ Aplicativo de comunicação para comunidade de jogos. Aqui, todos os jogadores p
 - Vá em File > Settings > Languages & Frameworks > Flutter e insira o caminho da pasta do SDK do Flutter em Flutter SDK path;
 - Abra o arquivo pubspec.yaml e clique em pub get para que as dependências (pacotes) utilizadas no projeto sejam carregadas;
 - Execute a aplicação.
+
+ ## Venha Me Conhecer
+[<img loading="lazy" src="https://avatars.githubusercontent.com/u/141975272?v=4" width=115><br><sub>Nathan Cielusinski</sub>](https://github.com/AoiteFoca)|
+|---|
