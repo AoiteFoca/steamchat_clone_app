@@ -1,5 +1,5 @@
 # Steam Chat Clone App
- <img alt="Project Status" src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-green">
+ <img alt="Project Status" src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue">
 Projeto flutter desenvolvido no Centro Universitário Católica de Jaraguá do Sul (CatólicaSC) para a matéria de desenvolvimento de dispositivos móveis no curso de Engenharia de Software.<br/>
 IDE: IntelliJ IDEA<br/>
 Plugins:<br/>
