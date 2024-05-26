@@ -62,8 +62,7 @@ class _CadastroPageState extends State<CadastroPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       // Navega de volta para a tela de login ao clicar no botão
-                      _cadastrar;
-                      Navigator.popUntil(context, ModalRoute.withName('login'));
+                      _cadastrar();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue[900], // Cor de fundo do botão
