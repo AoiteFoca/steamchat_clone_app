@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CadastroPage extends StatefulWidget {
   @override
@@ -61,7 +62,8 @@ class _CadastroPageState extends State<CadastroPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       // Navega de volta para a tela de login ao clicar no botão
-                      Navigator.popUntil(context, ModalRoute.withName('/'));
+                      _cadastrar;
+                      Navigator.popUntil(context, ModalRoute.withName('login'));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue[900], // Cor de fundo do botão
@@ -80,15 +82,27 @@ class _CadastroPageState extends State<CadastroPage> {
     );
   }
 
-  void _cadastrar() {
+  void _cadastrar() async{
     String user = _userController.text; // Obtém o texto digitado no campo de texto do usuário
     String email = _emailController.text; // Obtém o texto digitado no campo de texto do email
     String senha = _senhaController.text; // Obtém o texto digitado no campo de texto da senha
 
-    // Aqui você pode adicionar lógica de cadastro
-    // Por enquanto, vamos apenas imprimir os dados
-    print('User: $user');
-    print('Email: $email');
-    print('Senha: $senha');
+    try {
+      await FirebaseFirestore.instance.collection('users').add({
+        'username': user,
+        'email': email,
+        'password': senha,
+      });
+      //Mensagem de sucesso e navega para a tela de login
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Usuário cadastrado com sucesso!')),
+      );
+      Navigator.popUntil(context, ModalRoute.withName('login'));
+    } catch (e) {
+      // Exibe uma mensagem de erro
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erro ao cadastrar usuário. Tente novamente.')),
+      );
+    }
   }
 }

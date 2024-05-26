@@ -70,7 +70,7 @@ class MembrosGrupoPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: _buildMemberItem(
               'https://avatars.cloudflare.steamstatic.com/8d1eebb8364ac6ecc76bd9d3e13ff8e9743816fd_full.jpg', // URL da imagem do membro
-              'Makolindo', // Nome do membro
+              'El Gato', // Nome do membro
             ),
           ),
           Padding(

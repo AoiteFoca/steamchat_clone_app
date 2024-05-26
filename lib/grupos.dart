@@ -19,11 +19,11 @@ class _GruposPageState extends State<GruposPage> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
-        Navigator.pushReplacementNamed(context, '/amigos');
+        Navigator.pushReplacementNamed(context, 'amigos');
       } else if (index == 1) {
-        Navigator.pushReplacementNamed(context, '/chat');
+        Navigator.pushReplacementNamed(context, 'chat');
       } else if (index == 2) {
-        Navigator.pushReplacementNamed(context, '/grupos');
+        Navigator.pushReplacementNamed(context, 'grupos');
       }
     });
   }

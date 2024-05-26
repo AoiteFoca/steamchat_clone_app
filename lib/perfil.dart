@@ -171,7 +171,7 @@ class _PerfilPageState extends State<PerfilPage> {
                         leading: Icon(Icons.exit_to_app),
                         title: Text('Sair'),
                         onTap: () {
-                          Navigator.popUntil(context, ModalRoute.withName('/'));
+                          Navigator.popUntil(context, ModalRoute.withName('login'));
                         },
                       ),
                     ],

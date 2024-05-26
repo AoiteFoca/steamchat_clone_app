@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(), // Define o tema claro como padrão
       darkTheme: ThemeData.dark(), // Define o tema escuro
       themeMode: ThemeMode.dark, // Define o tema escuro como padrão
-      home: LoginPage(), // Define a página de login como a página inicial
     );
   }
 }

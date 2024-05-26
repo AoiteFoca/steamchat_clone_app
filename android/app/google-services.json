@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "401619007074",
+    "project_id": "steamchatcloneapp",
+    "storage_bucket": "steamchatcloneapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401619007074:android:d640ed0daf7502bf81833b",
+        "android_client_info": {
+          "package_name": "com.example.steamchat_clone_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYM0thbAogXJaUN-Cyc9-VSQuV2hPAtXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

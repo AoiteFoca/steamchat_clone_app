@@ -21,13 +21,13 @@ class _AmigosPageState extends State<AmigosPage> {
       _selectedIndex = index; // Atualiza o índice selecionado
       if (index == 0) {
         Navigator.pushReplacementNamed(
-            context, '/amigos'); // Redireciona para a página de amigos
+            context, 'amigos'); // Redireciona para a página de amigos
       } else if (index == 1) {
         Navigator.pushReplacementNamed(
-            context, '/chat'); // Redireciona para a página de chat
+            context, 'chat'); // Redireciona para a página de chat
       } else if (index == 2) {
         Navigator.pushReplacementNamed(
-            context, '/grupos'); // Redireciona para a página de grupos
+            context, 'grupos'); // Redireciona para a página de grupos
       }
     });
   }
@@ -228,10 +228,12 @@ class _AmigosPageState extends State<AmigosPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.people), // Ícone para amigos
             label: 'Amigos', // Texto do item
+
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat), // Ícone para conversas
             label: 'Conversas', // Texto do item
+
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.group), // Ícone para grupos
