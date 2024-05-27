@@ -10,7 +10,7 @@ class PerfilPage extends StatefulWidget {
 class _PerfilPageState extends State<PerfilPage> {
   String _status = 'Online'; // Define o status padrão
   String _nickname = ' ';
-  String _photoUrl = 'https://avatars.cloudflare.steamstatic.com/8d1eebb8364ac6ecc76bd9d3e13ff8e9743816fd_full.jpg';
+  String _photoUrl = 'https://www.roadsideamerica.com/attract/images/wi/WILACbluebaby_amber.jpg';
   final TextEditingController _nicknameController = TextEditingController();
   final TextEditingController _photoUrlController = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -78,13 +78,14 @@ class _PerfilPageState extends State<PerfilPage> {
                 width: constraints.maxWidth * 0.75,
                 // Define a largura do Drawer como 75% da largura total
                 child: Drawer(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      // Espaço para a foto de usuário e informações do perfil
-                      Expanded(
-                        child: Container(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        // Espaço para a foto de usuário e informações do perfil
+                        Container(
                           color: Colors.grey[900],
+                          padding: EdgeInsets.all(16.0),
                           child: Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -110,16 +111,11 @@ class _PerfilPageState extends State<PerfilPage> {
                                   ),
                                 ),
                                 SizedBox(height: 16.0), // Espaçamento
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      _nickname,
-                                      style: TextStyle(
-                                          fontSize: constraints.maxWidth * 0.05,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
+                                Text(
+                                  _nickname,
+                                  style: TextStyle(
+                                      fontSize: constraints.maxWidth * 0.05,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(height: constraints.maxWidth * 0.1), // Espaçamento
                                 Text(
@@ -197,40 +193,40 @@ class _PerfilPageState extends State<PerfilPage> {
                             ),
                           ),
                         ),
-                      ),
-                      // Opções na parte inferior do Drawer
-                      ListTile(
-                        leading: Icon(Icons.person_add),
-                        title: Text('Adicionar Amigo'),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => AddAmigosPage()),
-                          );
-                        },
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.settings),
-                        title: Text('Configurar Conta'),
-                        onTap: () {
-                          _showEditProfileModal();
-                        },
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.exit_to_app),
-                        title: Text('Sair'),
-                        onTap: () {
-                          _showLogoutConfirmation();
-                        },
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.delete_forever),
-                        title: Text('Apagar Conta'),
-                        onTap: () {
-                          _showDeleteAccountConfirmation();
-                        },
-                      ),
-                    ],
+                        // Opções na parte inferior do Drawer
+                        ListTile(
+                          leading: Icon(Icons.person_add),
+                          title: Text('Adicionar Amigo'),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => AddAmigosPage()),
+                            );
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.settings),
+                          title: Text('Configurar Conta'),
+                          onTap: () {
+                            _showEditProfileModal();
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.exit_to_app),
+                          title: Text('Sair'),
+                          onTap: () {
+                            _showLogoutConfirmation();
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.delete_forever),
+                          title: Text('Apagar Conta'),
+                          onTap: () {
+                            _showDeleteAccountConfirmation();
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
