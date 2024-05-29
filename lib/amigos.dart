@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'perfil.dart';
-import 'addamigos.dart';
+import 'perfil.dart';import 'login.dart';import 'amigos.dart';import 'conversas.dart';import 'grupos.dart';import 'addamigos.dart';
 import 'msg.dart';
 
 class AmigosPage extends StatefulWidget {
+  final String userId; // Adicione um parâmetro userId
+  AmigosPage({required this.userId}); // Atualize o construtor
   @override
   _AmigosPageState createState() => _AmigosPageState();
 }
@@ -17,14 +18,26 @@ class _AmigosPageState extends State<AmigosPage> {
     setState(() {
       _selectedIndex = index; // Atualiza o índice selecionado
       if (index == 0) {
-        Navigator.pushReplacementNamed(
-            context, 'amigos'); // Redireciona para a página de amigos
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AmigosPage(userId: widget.userId), // Redireciona para a página de amigos
+          ),
+        );
       } else if (index == 1) {
-        Navigator.pushReplacementNamed(
-            context, 'chat'); // Redireciona para a página de chat
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChatPage(userId: widget.userId), // Redireciona para a página de chat
+          ),
+        );
       } else if (index == 2) {
-        Navigator.pushReplacementNamed(
-            context, 'grupos'); // Redireciona para a página de grupos
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GruposPage(userId: widget.userId), // Redireciona para a página de grupos
+          ),
+        );
       }
     });
   }
@@ -69,7 +82,7 @@ class _AmigosPageState extends State<AmigosPage> {
             // Navegação para a página de perfil
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PerfilPage(userId: userId,)),
+              MaterialPageRoute(builder: (context) => PerfilPage(userId: widget.userId,)),
             );
           },
         ),
@@ -80,7 +93,7 @@ class _AmigosPageState extends State<AmigosPage> {
               // Redireciona para a página de adicionar amigos
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddAmigosPage()),
+                MaterialPageRoute(builder: (context) => AddAmigosPage(userId: widget.userId,)),
               );
             },
           ),

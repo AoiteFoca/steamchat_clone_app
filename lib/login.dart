@@ -131,9 +131,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => PerfilPage(
-                    userId: userDoc
-                        .id), // Passa o ID do usuário para a página de perfil
+                builder: (context) => AmigosPage(userId: userDoc.id), // Passa o ID do usuário para a página de perfil
               ),
             );
           } else {

@@ -24,10 +24,10 @@ class MyApp extends StatelessWidget {
       initialRoute: 'login', // Define a rota inicial como a página de login
       routes: { //Definições de Rotas
         'login': (context) => LoginPage(),
-        'amigos': (context) => AmigosPage(),
-        'chat': (context) => ChatPage(),
-        'grupos': (context) => GruposPage(),
-        'addamigos': (context) => AddAmigosPage(),
+        'amigos': (context) => AmigosPage(userId: ""),
+        'chat': (context) => ChatPage(userId: ""),
+        'grupos': (context) => GruposPage(userId: ""),
+        'addamigos': (context) => AddAmigosPage(userId: ""),
       },
       theme: ThemeData.light(), // Define o tema claro como padrão
       darkTheme: ThemeData.dark(), // Define o tema escuro

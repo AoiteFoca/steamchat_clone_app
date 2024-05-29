@@ -200,7 +200,7 @@ class _PerfilPageState extends State<PerfilPage> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => AddAmigosPage()),
+                              MaterialPageRoute(builder: (context) => AddAmigosPage(userId: widget.userId,)),
                             );
                           },
                         ),
@@ -273,6 +273,7 @@ class _PerfilPageState extends State<PerfilPage> {
                 TextField(
                   controller: _photoUrlController,
                   decoration: InputDecoration(labelText: 'Foto (URL)'),
+
                 ),
               ],
             ),

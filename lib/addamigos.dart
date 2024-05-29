@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; //Import para utilizar a área de transferência
 
 class AddAmigosPage extends StatelessWidget {
+  final String userId; // Adicione um parâmetro userId
+  AddAmigosPage({required this.userId}); // Atualize o construtor
   @override
   Widget build(BuildContext context) {
     String codigoAmigo = 'XLR8666'; // Código do amigo para copiar

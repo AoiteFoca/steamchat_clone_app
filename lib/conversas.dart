@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'perfil.dart';
-import 'msg.dart';
+import 'perfil.dart';import 'msg.dart';import 'amigos.dart';import 'grupos.dart';
 
 class ChatPage extends StatefulWidget {
+  final String userId; // Adicione um parâmetro userId
+  ChatPage({required this.userId}); // Atualize o construtor
   @override
   _ChatPageState createState() => _ChatPageState();
 }
@@ -15,13 +16,28 @@ class _ChatPageState extends State<ChatPage> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _selectedIndex = index; // Atualiza o índice selecionado
       if (index == 0) {
-        Navigator.pushReplacementNamed(context, 'amigos');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AmigosPage(userId: widget.userId), // Redireciona para a página de amigos
+          ),
+        );
       } else if (index == 1) {
-        Navigator.pushReplacementNamed(context, 'chat');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChatPage(userId: widget.userId), // Redireciona para a página de chat
+          ),
+        );
       } else if (index == 2) {
-        Navigator.pushReplacementNamed(context, 'grupos');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GruposPage(userId: widget.userId), // Redireciona para a página de grupos
+          ),
+        );
       }
     });
   }
@@ -48,7 +64,7 @@ class _ChatPageState extends State<ChatPage> {
             // Navegação para a página de perfil
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PerfilPage(userId: userId,)),
+              MaterialPageRoute(builder: (context) => PerfilPage(userId: widget.userId,)),
             );
           },
         ),
