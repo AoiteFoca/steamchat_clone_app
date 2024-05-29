@@ -35,6 +35,8 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 
+  String userId = "ExId";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,7 @@ class _ChatPageState extends State<ChatPage> {
             // Navegação para a página de perfil
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PerfilPage()),
+              MaterialPageRoute(builder: (context) => PerfilPage(userId: userId,)),
             );
           },
         ),

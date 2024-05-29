@@ -48,6 +48,8 @@ class _GruposPageState extends State<GruposPage> {
     );
   }
 
+  String userId = "ExId";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +60,7 @@ class _GruposPageState extends State<GruposPage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PerfilPage()),
+              MaterialPageRoute(builder: (context) => PerfilPage(userId: userId,)),
             );
           },
         ),

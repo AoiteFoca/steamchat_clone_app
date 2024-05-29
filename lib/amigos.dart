@@ -9,12 +9,9 @@ class AmigosPage extends StatefulWidget {
 }
 
 class _AmigosPageState extends State<AmigosPage> {
-  int _selectedIndex =
-      0; // Índice inicial selecionado para a bottom navigation bar
-  bool _showOnlineList =
-      true; // Variável para controlar a exibição da lista de amigos online
-  bool _showOfflineList =
-      true; // Variável para controlar a exibição da lista de amigos offline
+  int _selectedIndex = 0; // Índice inicial selecionado para a bottom navigation bar
+  bool _showOnlineList = true; // Variável para controlar a exibição da lista de amigos online
+  bool _showOfflineList =  true; // Variável para controlar a exibição da lista de amigos offline
 
   void _onItemTapped(int index) {
     setState(() {
@@ -61,6 +58,8 @@ class _AmigosPageState extends State<AmigosPage> {
       'Amigo_11'
     ];
 
+    String userId = "ExId";
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Meus Amigos'),
@@ -70,7 +69,7 @@ class _AmigosPageState extends State<AmigosPage> {
             // Navegação para a página de perfil
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PerfilPage()),
+              MaterialPageRoute(builder: (context) => PerfilPage(userId: userId,)),
             );
           },
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:steamchat_clone_app/perfil.dart';
 import 'cadastro.dart';
 import 'amigos.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -129,7 +130,11 @@ class _LoginPageState extends State<LoginPage> {
             );
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => AmigosPage()),
+              MaterialPageRoute(
+                builder: (context) => PerfilPage(
+                    userId: userDoc
+                        .id), // Passa o ID do usuário para a página de perfil
+              ),
             );
           } else {
             ScaffoldMessenger.of(context).showSnackBar(

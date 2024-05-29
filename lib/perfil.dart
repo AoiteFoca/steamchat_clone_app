@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'addamigos.dart';
 
 class PerfilPage extends StatefulWidget {
+  final String userId; // Adiciona o parâmetro userId
+  PerfilPage({required this.userId});
   @override
   _PerfilPageState createState() => _PerfilPageState();
 }
@@ -10,12 +12,10 @@ class PerfilPage extends StatefulWidget {
 class _PerfilPageState extends State<PerfilPage> {
   String _status = 'Online'; // Define o status padrão
   String _nickname = ' ';
-  String _photoUrl = 'https://www.roadsideamerica.com/attract/images/wi/WILACbluebaby_amber.jpg';
+  String _photoUrl = 'https://static.vecteezy.com/ti/vetor-gratis/p1/9292244-default-avatar-icon-vector-of-social-media-user-vetor.jpg';
   final TextEditingController _nicknameController = TextEditingController();
   final TextEditingController _photoUrlController = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  final String _userId = '4701'; // ID fictício do usuário
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _PerfilPageState extends State<PerfilPage> {
   }
 
   Future<void> _loadUserProfile() async {
-    DocumentSnapshot userDoc = await _firestore.collection('users').doc(_userId).get();
+    DocumentSnapshot userDoc = await _firestore.collection('users').doc(widget.userId).get();
     if (userDoc.exists) {
       setState(() {
         _nickname = userDoc['nickname'] ?? 'Nickname';
@@ -37,14 +37,14 @@ class _PerfilPageState extends State<PerfilPage> {
   }
 
   Future<void> _updateStatus(String status) async {
-    await _firestore.collection('users').doc(_userId).update({'status': status});
+    await _firestore.collection('users').doc(widget.userId).update({'status': status});
     setState(() {
       _status = status;
     });
   }
 
   Future<void> _updateProfile() async {
-    await _firestore.collection('users').doc(_userId).update({
+    await _firestore.collection('users').doc(widget.userId).update({
       'nickname': _nicknameController.text,
       'photoUrl': _photoUrlController.text,
     });
@@ -56,7 +56,7 @@ class _PerfilPageState extends State<PerfilPage> {
   }
 
   Future<void> _deleteAccount() async {
-    await _firestore.collection('users').doc(_userId).delete();
+    await _firestore.collection('users').doc(widget.userId).delete();
   }
 
   Future<void> _logout() async {
