@@ -18,6 +18,7 @@ Aplicativo de comunicação para comunidade de jogos. Aqui, todos os jogadores p
 - Escolha de nome do usuário;
 - Escolha do e-mail;
 - Escolha de senha;
+- Escolha do nickname;
 - Opção de voltar (Ícone de seta).
 ### Tela de Login;
 - Campo de inserção de credenciais.
@@ -26,8 +27,10 @@ Aplicativo de comunicação para comunidade de jogos. Aqui, todos os jogadores p
 - Ver o status da conta;
 - Alterar o status da conta;
 - Adicionar amigos;
-- Opção de voltar (Ícone de seta);
-- Log out.
+- Configurar Conta (editar nickname e foto);
+- Log out;
+- Apagar Conta;
+- Opção de voltar (Ícone de seta).
 ### Tela de Amigos;
 - Amigos favoritos;
 - Amigos online;
@@ -65,7 +68,7 @@ Aplicativo de comunicação para comunidade de jogos. Aqui, todos os jogadores p
 - Opção de sair do chat do grupo (Ícone de seta).
 ### Tela para Ver Membros do Grupo;
 - Opção para adicionar amigos ao grupo;
-- Opção buscar membros do grupo pelo username;
+- Opção buscar membros do grupo pelo nickname;
 - Lista com os membros do grupo;
 - Opção de saída do chat (Ícone de seta).
 ### Tela de Criação de Grupo;
