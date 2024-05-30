@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'perfil.dart';
-import 'grupomsg.dart';
-import 'novogrupo.dart';
+import 'perfil.dart';import 'amigos.dart';import 'conversas.dart';import 'grupomsg.dart';import 'novogrupo.dart';
 
 class GruposPage extends StatefulWidget {
+  final String userId; // Adicione um parâmetro userId
+  GruposPage({required this.userId}); // Atualize o construtor
   @override
   _GruposPageState createState() => _GruposPageState();
 }
@@ -17,13 +17,28 @@ class _GruposPageState extends State<GruposPage> {
   // Função para lidar com a navegação ao pressionar os itens da barra de navegação inferior
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _selectedIndex = index; // Atualiza o índice selecionado
       if (index == 0) {
-        Navigator.pushReplacementNamed(context, 'amigos');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AmigosPage(userId: widget.userId), // Redireciona para a página de amigos
+          ),
+        );
       } else if (index == 1) {
-        Navigator.pushReplacementNamed(context, 'chat');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChatPage(userId: widget.userId), // Redireciona para a página de chat
+          ),
+        );
       } else if (index == 2) {
-        Navigator.pushReplacementNamed(context, 'grupos');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GruposPage(userId: widget.userId), // Redireciona para a página de grupos
+          ),
+        );
       }
     });
   }
@@ -48,6 +63,8 @@ class _GruposPageState extends State<GruposPage> {
     );
   }
 
+  String userId = "ExId";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +75,7 @@ class _GruposPageState extends State<GruposPage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PerfilPage()),
+              MaterialPageRoute(builder: (context) => PerfilPage(userId: widget.userId,)),
             );
           },
         ),

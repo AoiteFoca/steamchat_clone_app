@@ -134,6 +134,8 @@ class _CadastroPageState extends State<CadastroPage> {
         'email': email,
         'password': senha,
         'nickname': nickname,
+        'firstTime': true,
+        'primVez': true,
       });
       // Mensagem de sucesso e navega para a tela de login
       ScaffoldMessenger.of(context).showSnackBar(
