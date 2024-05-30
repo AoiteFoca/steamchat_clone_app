@@ -1,5 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'perfil.dart';import 'login.dart';import 'amigos.dart';import 'conversas.dart';import 'grupos.dart';import 'addamigos.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'perfil.dart';
+import 'conversas.dart';
+import 'grupos.dart';
+import 'addamigos.dart';
 import 'msg.dart';
 
 class AmigosPage extends StatefulWidget {
@@ -10,9 +15,32 @@ class AmigosPage extends StatefulWidget {
 }
 
 class _AmigosPageState extends State<AmigosPage> {
-  int _selectedIndex = 0; // Índice inicial selecionado para a bottom navigation bar
-  bool _showOnlineList = true; // Variável para controlar a exibição da lista de amigos online
-  bool _showOfflineList =  true; // Variável para controlar a exibição da lista de amigos offline
+  int _selectedIndex =
+      0; // Índice inicial selecionado para a bottom navigation bar
+  bool _showOnlineList =
+      true; // Variável para controlar a exibição da lista de amigos online
+  bool _showOfflineList =
+      true; // Variável para controlar a exibição da lista de amigos offline
+  bool _firstTime = true; //Exibição do alerta
+
+  @override
+  void initState() {
+    super.initState();
+    _checkFirstTime();
+  }
+
+  _checkFirstTime() async {
+    DocumentSnapshot userDoc = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(widget.userId)
+        .get();
+    bool? firstTime = userDoc['firstTime'];
+    if (firstTime != null && !firstTime) {
+      setState(() {
+        _firstTime = false;
+      });
+    }
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -21,21 +49,24 @@ class _AmigosPageState extends State<AmigosPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => AmigosPage(userId: widget.userId), // Redireciona para a página de amigos
+            builder: (context) => AmigosPage(
+                userId: widget.userId), // Redireciona para a página de amigos
           ),
         );
       } else if (index == 1) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => ChatPage(userId: widget.userId), // Redireciona para a página de chat
+            builder: (context) => ChatPage(
+                userId: widget.userId), // Redireciona para a página de chat
           ),
         );
       } else if (index == 2) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => GruposPage(userId: widget.userId), // Redireciona para a página de grupos
+            builder: (context) => GruposPage(
+                userId: widget.userId), // Redireciona para a página de grupos
           ),
         );
       }
@@ -82,7 +113,10 @@ class _AmigosPageState extends State<AmigosPage> {
             // Navegação para a página de perfil
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PerfilPage(userId: widget.userId,)),
+              MaterialPageRoute(
+                  builder: (context) => PerfilPage(
+                        userId: widget.userId,
+                      )),
             );
           },
         ),
@@ -93,7 +127,10 @@ class _AmigosPageState extends State<AmigosPage> {
               // Redireciona para a página de adicionar amigos
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddAmigosPage(userId: widget.userId,)),
+                MaterialPageRoute(
+                    builder: (context) => AddAmigosPage(
+                          userId: widget.userId,
+                        )),
               );
             },
           ),
@@ -102,6 +139,43 @@ class _AmigosPageState extends State<AmigosPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (_firstTime)
+            Container(
+              padding: EdgeInsets.all(10),
+              color: Colors.blueAccent,
+              child: Column(
+                children: [
+                  Center(
+                    child: Text(
+                      'Clique abaixo para alterar sua imagem de perfil',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  OutlinedButton(
+                    onPressed: () async {
+                      //Seta o first time como falso
+                      setState(() {
+                        _firstTime = false;
+                      });
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(widget.userId)
+                          .update({
+                        'firstTime': false,
+                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              PerfilPage(userId: widget.userId),
+                        ),
+                      );
+                    },
+                    child: Text('Alterar Imagem do Perfil'),
+                  ),
+                ],
+              ),
+            ),
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -117,7 +191,8 @@ class _AmigosPageState extends State<AmigosPage> {
           SizedBox(
             height: 100.0,
             child: ListView.builder(
-              scrollDirection: Axis.horizontal, // Rolagem horizontal para lista dos amigos favoritos
+              scrollDirection: Axis.horizontal,
+              // Rolagem horizontal para lista dos amigos favoritos
               itemCount: amigosFavoritos.length,
               itemBuilder: (context, index) {
                 return Padding(
@@ -240,12 +315,10 @@ class _AmigosPageState extends State<AmigosPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.people), // Ícone para amigos
             label: 'Amigos', // Texto do item
-
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat), // Ícone para conversas
             label: 'Conversas', // Texto do item
-
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.group), // Ícone para grupos

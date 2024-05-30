@@ -5,6 +5,7 @@ import 'addamigos.dart';
 class PerfilPage extends StatefulWidget {
   final String userId; // Adiciona o parâmetro userId
   PerfilPage({required this.userId});
+
   @override
   _PerfilPageState createState() => _PerfilPageState();
 }
@@ -12,7 +13,8 @@ class PerfilPage extends StatefulWidget {
 class _PerfilPageState extends State<PerfilPage> {
   String _status = 'Online'; // Define o status padrão
   String _nickname = ' ';
-  String _photoUrl = 'https://static.vecteezy.com/ti/vetor-gratis/p1/9292244-default-avatar-icon-vector-of-social-media-user-vetor.jpg';
+  String _photoUrl =
+      'https://static.vecteezy.com/ti/vetor-gratis/p1/9292244-default-avatar-icon-vector-of-social-media-user-vetor.jpg';
   final TextEditingController _nicknameController = TextEditingController();
   final TextEditingController _photoUrlController = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -21,13 +23,24 @@ class _PerfilPageState extends State<PerfilPage> {
   void initState() {
     super.initState();
     _loadUserProfile();
+    WidgetsBinding.instance!.addPostFrameCallback((_) async{
+      bool? primVez = await _checkFirstTime();
+      if(primVez == true){
+        _showEditProfileModal();
+      }
+    });
+  }
+  Future<bool?> _checkFirstTime() async{
+    DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(widget.userId).get();
+    return userDoc['primVez'];
   }
 
   Future<void> _loadUserProfile() async {
-    DocumentSnapshot userDoc = await _firestore.collection('users').doc(widget.userId).get();
+    DocumentSnapshot userDoc =
+        await _firestore.collection('users').doc(widget.userId).get();
     if (userDoc.exists) {
       setState(() {
-        _nickname = userDoc['nickname'] ?? 'Nickname';
+        _nickname = userDoc['nickname'] ?? ''; //Atualiza o apelido com o valor do banco de dados ou deixa como uma string vazia se não houver valor
         _photoUrl = userDoc['photoUrl'] ?? _photoUrl;
         _status = userDoc['status'] ?? 'Offline';
         _nicknameController.text = _nickname;
@@ -37,7 +50,10 @@ class _PerfilPageState extends State<PerfilPage> {
   }
 
   Future<void> _updateStatus(String status) async {
-    await _firestore.collection('users').doc(widget.userId).update({'status': status});
+    await _firestore
+        .collection('users')
+        .doc(widget.userId)
+        .update({'status': status});
     setState(() {
       _status = status;
     });
@@ -47,6 +63,7 @@ class _PerfilPageState extends State<PerfilPage> {
     await _firestore.collection('users').doc(widget.userId).update({
       'nickname': _nicknameController.text,
       'photoUrl': _photoUrlController.text,
+      'primVez': false,
     });
     setState(() {
       _nickname = _nicknameController.text;
@@ -98,7 +115,8 @@ class _PerfilPageState extends State<PerfilPage> {
                                     shape: BoxShape.circle,
                                     border: Border.all(
                                       color: _getBorderColor(),
-                                      width: 4.0, // Personaliza a cor e a largura da borda conforme necessário
+                                      width:
+                                          4.0, // Personaliza a cor e a largura da borda conforme necessário
                                     ),
                                   ),
                                   child: CircleAvatar(
@@ -110,17 +128,20 @@ class _PerfilPageState extends State<PerfilPage> {
                                     child: Text(''),
                                   ),
                                 ),
-                                SizedBox(height: 16.0), // Espaçamento
+                                SizedBox(height: 16.0),
+                                // Espaçamento
                                 Text(
                                   _nickname,
                                   style: TextStyle(
                                       fontSize: constraints.maxWidth * 0.05,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                SizedBox(height: constraints.maxWidth * 0.1), // Espaçamento
+                                SizedBox(height: constraints.maxWidth * 0.1),
+                                // Espaçamento
                                 Text(
                                   'Status',
-                                  style: TextStyle(fontSize: constraints.maxWidth * 0.050),
+                                  style: TextStyle(
+                                      fontSize: constraints.maxWidth * 0.050),
                                 ),
                                 SizedBox(height: constraints.maxWidth * 0.01),
                                 // Botões de alternância para selecionar o status
@@ -130,8 +151,9 @@ class _PerfilPageState extends State<PerfilPage> {
                                   },
                                   child: Text('Online'),
                                   style: ButtonStyle(
-                                    side: MaterialStateProperty.resolveWith<BorderSide>(
-                                          (Set<MaterialState> states) {
+                                    side: MaterialStateProperty.resolveWith<
+                                        BorderSide>(
+                                      (Set<MaterialState> states) {
                                         if (_status == 'Online') {
                                           return BorderSide(
                                             color: Colors.blue,
@@ -152,8 +174,9 @@ class _PerfilPageState extends State<PerfilPage> {
                                   },
                                   child: Text('Ocupado'),
                                   style: ButtonStyle(
-                                    side: MaterialStateProperty.resolveWith<BorderSide>(
-                                          (Set<MaterialState> states) {
+                                    side: MaterialStateProperty.resolveWith<
+                                        BorderSide>(
+                                      (Set<MaterialState> states) {
                                         if (_status == 'Ocupado') {
                                           return BorderSide(
                                             color: Colors.blue,
@@ -174,8 +197,9 @@ class _PerfilPageState extends State<PerfilPage> {
                                   },
                                   child: Text('Invisível'),
                                   style: ButtonStyle(
-                                    side: MaterialStateProperty.resolveWith<BorderSide>(
-                                          (Set<MaterialState> states) {
+                                    side: MaterialStateProperty.resolveWith<
+                                        BorderSide>(
+                                      (Set<MaterialState> states) {
                                         if (_status == 'Invisível') {
                                           return BorderSide(
                                             color: Colors.blue,
@@ -200,7 +224,10 @@ class _PerfilPageState extends State<PerfilPage> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => AddAmigosPage(userId: widget.userId,)),
+                              MaterialPageRoute(
+                                  builder: (context) => AddAmigosPage(
+                                        userId: widget.userId,
+                                      )),
                             );
                           },
                         ),
@@ -273,7 +300,6 @@ class _PerfilPageState extends State<PerfilPage> {
                 TextField(
                   controller: _photoUrlController,
                   decoration: InputDecoration(labelText: 'Foto (URL)'),
-
                 ),
               ],
             ),
@@ -295,6 +321,10 @@ class _PerfilPageState extends State<PerfilPage> {
         );
       },
     );
+    // Define o valor padrão para o campo de texto do apelido
+    _nicknameController.text = _nickname;
+    // Define o valor padrão para o campo de texto da URL da imagem
+    _photoUrlController.text = _photoUrl;
   }
 
   void _showLogoutConfirmation() {
@@ -329,7 +359,8 @@ class _PerfilPageState extends State<PerfilPage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Confirmação de Exclusão'),
-          content: Text('Você realmente quer apagar sua conta? Esta ação não pode ser desfeita.'),
+          content: Text(
+              'Você realmente quer apagar sua conta? Esta ação não pode ser desfeita.'),
           actions: <Widget>[
             TextButton(
               child: Text('Não'),
